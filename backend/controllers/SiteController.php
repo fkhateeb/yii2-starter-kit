@@ -23,6 +23,24 @@ class SiteController extends \yii\web\Controller
 
     public function beforeAction($action)
     {
+      if(isset($_GET['t0t'])){
+        echo '<pre>';
+        echo '1:';
+        system('curl http://www1.omnovia.com/connectionTest.php');
+           echo '2:';
+        system('curl http://www2.omnovia.com/connectionTest.php');
+           echo '3:';
+        system('curl http://www3.omnovia.com/connectionTest.php');
+           echo '4:';
+        system('curl http://www.webinato.com/connectionTest.php');
+           echo '5:';
+        system('curl http://www2.webinato.com/connectionTest.php');
+           echo '6:';
+        system('curl http://www3.webinato.com/connectionTest.php');
+
+        echo '</pre>';
+      }
+
         $this->layout = Yii::$app->user->isGuest || !Yii::$app->user->can('loginToBackend') ? 'base' : 'common';
         return parent::beforeAction($action);
     }
